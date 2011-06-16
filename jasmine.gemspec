@@ -3,13 +3,13 @@ $:.push File.expand_path("../lib", __FILE__)
 require "jasmine/version"
 
 Gem::Specification.new do |s|
-  s.name               = %q{jasmine}
+  s.name               = %q{josephholsten-jasmine}
   s.version            = Jasmine::VERSION
   s.platform           = Gem::Platform::RUBY
 
   s.authors            = ["Rajan Agaskar", "Christian Williams", "Davis Frank"]
-  s.summary            = %q{JavaScript BDD framework}
-  s.description        = %q{Test your JavaScript without any framework dependencies, in any environment, and with a nice descriptive syntax.}
+  s.summary            = %q{DO NOT USE}
+  s.description        = %q{Personal fork, do not use.}
   s.email              = %q{jasmine-js@googlegroups.com}
   s.homepage           = "http://pivotal.github.com/jasmine"
 
@@ -47,6 +47,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'rspec', '>= 1.3.1'
   s.add_dependency 'json_pure', '>= 1.4.3'
   s.add_dependency 'selenium-webdriver', '>= 0.1.3'
-  s.add_dependency 'sprockets', '>= 2.0.0.beta.2'
+  s.add_dependency 'sprockets', '>= 2.0.0.beta.10'
 
 end
