@@ -44,6 +44,7 @@ stylesheets:
 #
 helpers:
   - helpers/**/*.js
+  - helpers/**/*.js.coffee
 
 # spec_files
 #
@@ -57,6 +58,7 @@ helpers:
 #
 spec_files:
   - '**/*[sS]pec.js'
+  - '**/*[sS]pec.js.coffee'
 
 # src_dir
 #
@@ -79,3 +81,9 @@ src_dir:
 # spec_dir: spec/javascripts
 #
 spec_dir: spec/javascripts
+
+asset_dirs:
+  - app/assets
+  - vendor/assets
+
+
