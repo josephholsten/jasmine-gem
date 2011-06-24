@@ -183,11 +183,13 @@ module Jasmine
       '/__assets__'
     end
 
-    def asset_dir
-      if simple_config['asset_dir']
-        File.join(project_root, simple_config['asset_dir'])
+    def asset_dirs
+      if simple_config['asset_dirs']
+        File.join(project_root, simple_config['asset_dirs']).map do |p|
+          File.join(project_root, p)
+        end
       else
-        File.join(project_root, 'app/assets')
+        [File.join(project_root, 'app/assets')]
       end
     end
 
