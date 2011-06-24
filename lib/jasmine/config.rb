@@ -92,8 +92,28 @@ module Jasmine
 
     def js_files(spec_filter = nil)
       spec_files_to_include = spec_filter.nil? ? spec_files : match_files(spec_dir, [spec_filter])
-      src_files.collect {|f| "/" + f } + asset_files.collect {|f| asset_path + '/' + f} + helpers.collect {|f| File.join(spec_path, f) } + spec_files_to_include.collect {|f| File.join(spec_path, f) }
+      o = src_files.collect {|f| "/" + f } + asset_files.collect {|f| asset_path + '/' + f} + helpers.collect {|f| File.join(spec_path, f) } + spec_files_to_include.collect {|f| File.join(spec_path, f) }
+
+      # When using Sprockets we want to only provide the 
+      # target js file. So
+      #
+      # foo.js.coffee 
+      #
+      # should be provided as
+      #
+      # foo.js
+      #
+      # So this allows us in the config file to do
+      #
+      # 
+      #  spec_files:
+      #    - '**/*.js.coffee'
+      #
+      o = o.map do |f|
+        f.gsub /\.js\..*$/, '.js'
+      end
     end
+    
 
     def css_files
       stylesheets.collect {|f| "/" + f }
